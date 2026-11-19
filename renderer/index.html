@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob:; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:">
+<title>Switchyard</title>
+<link rel="stylesheet" href="../node_modules/@xterm/xterm/css/xterm.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <div id="side-top" class="drag"></div>
+    <div id="side-tabs">
+      <button data-view="sessions" class="active">Sessions</button>
+      <button data-view="files">Files</button>
+    </div>
+    <div id="view-sessions" class="side-view">
+      <div class="side-head"><span>Hosts</span><span class="side-actions" id="host-actions"></span></div>
+      <div id="host-list" class="side-scroll"></div>
+      <div class="side-head"><span>Panes</span><span class="side-count" id="pane-count"></span></div>
+      <div id="pane-list" class="side-scroll"></div>
+    </div>
+    <div id="view-files" class="side-view" hidden></div>
+  </aside>
+  <div id="side-resizer"></div>
+  <main>
+    <div id="tabbar" class="drag"><div id="tabs"></div><button id="tab-add" class="icon-btn no-drag" title="New workspace"></button></div>
+    <div id="stage"></div>
+  </main>
+</div>
+<div id="overlays"></div>
+<div id="toasts"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "name": "switchyard",
+  "productName": "Switchyard",
+  "version": "0.1.0",
+  "description": "Agent-aware multi-server terminal multiplexer with a file editor, VNC and RDP",
+  "main": "main/main.js",
+  "bin": {
+    "sy": "bin/sy.js"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux",
+    "postinstall": "node scripts/setup.js",
+    "pack": "electron-builder --dir",
+    "icon": "node scripts/start.js scripts/make-icon.js"
+  },
+  "build": {
+    "appId": "coffee.hacksfor.switchyard",
+    "files": [
+      "main/**",
+      "renderer/**",
+      "bin/**",
+      "build/icon.png",
+      "package.json",
+      "!node_modules/monaco-editor/{dev,esm,min-maps}/**",
+      "!node_modules/**/*.map"
+    ],
+    "asarUnpack": [
+      "bin/**",
+      "**/node_modules/node-pty/**"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "identity": "-",
+      "hardenedRuntime": false,
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development",
+      "icon": "build/icon.png"
+    },
+    "npmRebuild": false,
+    "nodeGypRebuild": false,
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@novnc/novnc": "^1.7.0",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-serialize": "^0.14.0",
+    "@xterm/addon-web-links": "^0.12.0",
+    "@xterm/headless": "^6.0.0",
+    "@xterm/xterm": "^6.0.0",
+    "monaco-editor": "^0.52.2",
+    "node-pty": "^1.1.0",
+    "ssh2": "^1.17.0"
+  },
+  "devDependencies": {
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0"
+  },
+  "author": "hacksfor.coffee"
+}

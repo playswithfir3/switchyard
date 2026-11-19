@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#262c3b"/>
+      <stop offset="1" stop-color="#0d0f14"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.25"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="18"/>
+      <feOffset dy="14"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.38"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <!-- macOS icon grid: 824px plate centred on a 1024 canvas -->
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="103" y="103" width="818" height="818" rx="183" fill="none" stroke="url(#rim)" stroke-width="6"/>
+
+  <!-- one line in, three tracks out -->
+  <g fill="none" stroke="#3a4257" stroke-width="64" stroke-linecap="round">
+    <path d="M252 512H400C520 512 520 306 640 306H716"/>
+    <path d="M252 512H716"/>
+    <path d="M252 512H400C520 512 520 718 640 718H716"/>
+  </g>
+  <g fill="none" stroke="#dfe3ec" stroke-width="34" stroke-linecap="round">
+    <path d="M252 512H400C520 512 520 306 640 306H716"/>
+    <path d="M252 512H716"/>
+    <path d="M252 512H400C520 512 520 718 640 718H716"/>
+  </g>
+
+  <!-- the three agent states: working, done, needs input -->
+  <g filter="url(#glow)" opacity="0.75">
+    <circle cx="752" cy="306" r="50" fill="#f0a730"/>
+    <circle cx="752" cy="512" r="50" fill="#3ecf8e"/>
+    <circle cx="752" cy="718" r="50" fill="#f2668b"/>
+  </g>
+  <g stroke="#11141b" stroke-width="12">
+    <circle cx="752" cy="306" r="54" fill="#f0a730"/>
+    <circle cx="752" cy="512" r="54" fill="#3ecf8e"/>
+    <circle cx="752" cy="718" r="54" fill="#f2668b"/>
+  </g>
+  <circle cx="262" cy="512" r="46" fill="#6ea0f7" stroke="#11141b" stroke-width="12"/>
+</svg>
